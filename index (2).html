@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sri Annapurna Enterprises – Wholesale Grocery Store, Purnia</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --saffron:    #E8870A;
+      --saffron-d:  #C46F05;
+      --cream:      #FFF8EE;
+      --brown:      #4A2C0A;
+      --green:      #2D6A2D;
+      --green-l:    #3E8B3E;
+      --text-dark:  #1E1205;
+      --text-mid:   #5C3D1E;
+      --card-bg:    #FFFDF7;
+      --border:     #F0E0C0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 4px; }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--brown);
+      color: #FFE8B0;
+      font-size: .78rem;
+      padding: 7px 0;
+      letter-spacing: .03em;
+    }
+    .top-bar a { color: #FFD580; text-decoration: none; }
+    .top-bar a:hover { color: #fff; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: linear-gradient(135deg, var(--brown) 0%, #7A3B0C 100%);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,.35);
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 48px; height: 48px;
+      background: var(--saffron);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 0 0 3px rgba(232,135,10,.3);
+      animation: pulse-ring 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%,100%{ box-shadow: 0 0 0 3px rgba(232,135,10,.3); }
+      50%     { box-shadow: 0 0 0 8px rgba(232,135,10,.1); }
+    }
+    .brand-text-top {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #FFD580;
+      line-height: 1.1;
+    }
+    .brand-text-sub {
+      font-size: .68rem;
+      color: #FFBC6A;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .nav-link {
+      color: #FFE8B0 !important;
+      font-weight: 500;
+      font-size: .9rem;
+      padding: 8px 14px !important;
+      border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: rgba(232,135,10,.25);
+      color: #FFD580 !important;
+    }
+    .navbar-toggler { border-color: rgba(255,200,100,.4); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #2D1500 0%, #5A2A00 40%, #8C4A00 100%);
+    }
+    .hero-bg-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=1600&q=80') center/cover no-repeat;
+      opacity: .18;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(42,15,0,.92) 0%, rgba(42,15,0,.55) 60%, transparent 100%);
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--saffron);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 900;
+      color: #FFF0D0;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .hero h1 span { color: var(--saffron); }
+    .hero p {
+      font-size: 1.05rem;
+      color: #FFDBAA;
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      animation: fadeUp .7s .2s ease both;
+    }
+    .hero-btns { animation: fadeUp .7s .3s ease both; }
+    .btn-saffron {
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-d));
+      color: #fff;
+      font-weight: 600;
+      padding: 13px 32px;
+      border-radius: 8px;
+      border: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 6px 20px rgba(232,135,10,.45);
+    }
+    .btn-saffron:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,135,10,.55); color: #fff; }
+    .btn-outline-light2 {
+      background: transparent;
+      color: #FFD580;
+      border: 2px solid rgba(255,213,128,.5);
+      font-weight: 600;
+      padding: 13px 32px;
+      border-radius: 8px;
+      transition: all .2s;
+    }
+    .btn-outline-light2:hover { background: rgba(255,213,128,.1); border-color: #FFD580; color: #FFD580; }
+    .hero-stats {
+      position: relative; z-index: 2;
+      margin-top: 56px;
+      animation: fadeUp .7s .4s ease both;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: var(--saffron);
+    }
+    .stat-label { font-size: .75rem; color: #FFDBAA; letter-spacing: .05em; }
+
+    .hero-right-img {
+      position: relative; z-index: 2;
+      animation: fadeUp .8s .2s ease both;
+    }
+    .hero-img-wrap {
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid rgba(232,135,10,.5);
+      box-shadow: 0 0 0 14px rgba(232,135,10,.12), 0 30px 80px rgba(0,0,0,.4);
+      margin: 0 auto;
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 90px 0; }
+    .section-eyebrow {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--brown);
+      margin-bottom: 14px;
+    }
+    .section-desc {
+      color: var(--text-mid);
+      font-size: .95rem;
+      max-width: 560px;
+      line-height: 1.8;
+    }
+    .divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--saffron), var(--saffron-d));
+      border-radius: 2px;
+      margin: 16px 0 28px;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-strip {
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-d));
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .marquee-inner {
+      display: flex;
+      gap: 50px;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      color: #fff;
+      font-weight: 600;
+      font-size: .88rem;
+      letter-spacing: .06em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .marquee-item i { font-size: .7rem; opacity: .7; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── PRODUCTS ── */
+    #products { background: #FFF4E6; }
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(74,44,10,.1);
+      transition: transform .3s, box-shadow .3s;
+      height: 100%;
+      border: 1px solid var(--border);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(74,44,10,.18);
+    }
+    .product-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.07); }
+    .product-badge {
+      position: absolute;
+      top: 12px; left: 12px;
+      background: var(--saffron);
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .product-body { padding: 20px; }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 6px;
+    }
+    .product-desc { font-size: .82rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 14px; }
+    .product-tag {
+      display: inline-block;
+      background: #FFF0D5;
+      color: var(--saffron-d);
+      font-size: .7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid #FFD89E;
+      margin: 2px;
+    }
+
+    /* ── WHY US ── */
+    #why { background: var(--cream); }
+    .why-card {
+      text-align: center;
+      padding: 36px 24px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 18px rgba(74,44,10,.08);
+      transition: transform .3s, box-shadow .3s;
+      height: 100%;
+    }
+    .why-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(74,44,10,.15); }
+    .why-icon {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFF0D0, #FFD89E);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 18px;
+      box-shadow: 0 4px 14px rgba(232,135,10,.2);
+    }
+    .why-card h5 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .why-card p { font-size: .83rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* ── GALLERY ── */
+    #gallery { background: #FFF4E6; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 240px 240px;
+      gap: 12px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .gallery-item { overflow: hidden; position: relative; cursor: pointer; }
+    .gallery-item:first-child { grid-row: 1 / 3; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(42,15,0,.6), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: 16px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: #FFD580; font-weight: 600; font-size: .85rem; }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: linear-gradient(160deg, #2D1500 0%, #5A2A00 60%, #8C4A00 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1608686207856-001b95cf60ca?w=1200&q=60') center/cover no-repeat;
+      opacity: .07;
+    }
+    #contact .section-title { color: #FFD580; }
+    #contact .section-eyebrow { color: var(--saffron); }
+    #contact .section-desc { color: #FFDBAA; }
+    .contact-card {
+      background: rgba(255,248,238,.06);
+      border: 1px solid rgba(232,135,10,.25);
+      border-radius: 16px;
+      padding: 32px 28px;
+      backdrop-filter: blur(10px);
+      height: 100%;
+    }
+    .contact-icon-wrap {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-d));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 18px rgba(232,135,10,.4);
+    }
+    .contact-card h6 {
+      color: #FFD580;
+      font-weight: 600;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .contact-card p, .contact-card a {
+      color: #FFE8B0;
+      font-size: .9rem;
+      line-height: 1.7;
+      text-decoration: none;
+    }
+    .contact-card a:hover { color: #FFD580; }
+    .contact-form-card {
+      background: rgba(255,248,238,.06);
+      border: 1px solid rgba(232,135,10,.2);
+      border-radius: 20px;
+      padding: 40px 36px;
+      backdrop-filter: blur(10px);
+    }
+    .contact-form-card h4 {
+      font-family: 'Playfair Display', serif;
+      color: #FFD580;
+      font-weight: 700;
+      margin-bottom: 24px;
+      font-size: 1.4rem;
+    }
+    .form-control, .form-select {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(232,135,10,.3);
+      color: #FFF0D0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: .9rem;
+    }
+    .form-control::placeholder { color: rgba(255,230,180,.45); }
+    .form-control:focus, .form-select:focus {
+      background: rgba(255,255,255,.12);
+      border-color: var(--saffron);
+      color: #FFF0D0;
+      box-shadow: 0 0 0 3px rgba(232,135,10,.2);
+    }
+    .form-label { color: #FFD090; font-size: .82rem; font-weight: 500; margin-bottom: 6px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1A0A00;
+      color: #FFDBAA;
+      padding: 60px 0 0;
+    }
+    .footer-brand-icon {
+      width: 56px; height: 56px;
+      background: var(--saffron);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+    }
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #FFD580;
+      margin-bottom: 4px;
+    }
+    .footer-sub { font-size: .73rem; color: #FFBC6A; letter-spacing: .1em; text-transform: uppercase; }
+    footer h6 { color: #FFD580; font-weight: 700; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 18px; }
+    footer ul { list-style: none; padding: 0; }
+    footer ul li { margin-bottom: 10px; }
+    footer ul li a { color: #FFDBAA; text-decoration: none; font-size: .85rem; transition: color .2s, padding-left .2s; }
+    footer ul li a:hover { color: var(--saffron); padding-left: 4px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(232,135,10,.2);
+      padding: 20px 0;
+      margin-top: 48px;
+      text-align: center;
+      font-size: .78rem;
+      color: #A07040;
+    }
+    .social-link {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: rgba(232,135,10,.15);
+      border: 1px solid rgba(232,135,10,.3);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #FFD580;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+      margin-right: 6px;
+    }
+    .social-link:hover { background: var(--saffron); color: #fff; transform: translateY(-3px); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── BACK TO TOP ── */
+    #back-top {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 44px; height: 44px;
+      background: var(--saffron);
+      color: #fff;
+      border-radius: 12px;
+      display: none; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 18px rgba(232,135,10,.5);
+      cursor: pointer;
+      z-index: 999;
+      transition: transform .2s;
+    }
+    #back-top:hover { transform: translateY(-3px); }
+    #back-top.show { display: flex; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:991px){
+      .hero-img-wrap { width: 280px; height: 280px; margin-top: 40px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item:first-child { grid-row: auto; }
+    }
+    @media(max-width:575px){
+      .hero { min-height: auto; padding: 80px 0 60px; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <span><i class="fas fa-map-marker-alt me-1"></i> Purnia, Bihar, India</span>
+    <div class="d-flex flex-wrap gap-3">
+      <a href="tel:+919576212275"><i class="fas fa-phone-alt me-1"></i>+91 95762 12275</a>
+      <a href="mailto:sriannpurnaenterprises101@gmail.com"><i class="fas fa-envelope me-1"></i>sriannpurnaenterprises101@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <div class="brand-icon">🌾</div>
+      <div>
+        <div class="brand-text-top">Sri Annapurna</div>
+        <div class="brand-text-sub">Enterprises</div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav gap-1">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why">Why Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 hero-content">
+        <div class="hero-eyebrow">✦ Wholesale Grocery Store – Purnia</div>
+        <h1>Pure Grains &<br><span>Quality Groceries</span><br>at Wholesale Rates</h1>
+        <p>From premium basmati rice to cold-pressed oils and fine dals — Sri Annapurna Enterprises brings you the freshest bulk groceries straight from the source.</p>
+        <div class="hero-btns d-flex flex-wrap gap-3">
+          <a href="#products" class="btn btn-saffron">Explore Products</a>
+          <a href="#contact" class="btn btn-outline-light2">Get a Quote</a>
+        </div>
+        <div class="hero-stats row g-4 mt-2">
+          <div class="col-4 stat-item">
+            <div class="stat-num">50+</div>
+            <div class="stat-label">Products</div>
+          </div>
+          <div class="col-4 stat-item">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="col-4 stat-item">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Years in Business</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-right-img text-center">
+        <div class="hero-img-wrap">
+          <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&q=85" alt="Wholesale Groceries"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner" id="marquee">
+    <span class="marquee-item">🌾 Basmati Rice <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🫘 Arhar Dal <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🌻 Sunflower Oil <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🧅 Masoor Dal <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🌿 Mustard Oil <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🌾 Sona Masoori Rice <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🫛 Chana Dal <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🥥 Coconut Oil <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🌾 Basmati Rice <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🫘 Arhar Dal <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🌻 Sunflower Oil <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🧅 Masoor Dal <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🌿 Mustard Oil <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🌾 Sona Masoori Rice <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🫛 Chana Dal <i class="fas fa-circle"></i></span>
+    <span class="marquee-item">🥥 Coconut Oil <i class="fas fa-circle"></i></span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <div class="section-eyebrow">Our Products</div>
+      <h2 class="section-title">Fresh Groceries in Bulk</h2>
+      <div class="divider mx-auto"></div>
+      <p class="section-desc mx-auto">We supply a wide range of premium staples — directly to retailers, restaurants, and institutions across Bihar and beyond.</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- Rice -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1536304993881-ff86e0c9e01b?w=600&q=80" alt="Basmati Rice"/>
+            <span class="product-badge">Best Seller</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Premium Rice</div>
+            <p class="product-desc">Basmati, Sona Masoori, IR8 & more — long-grain, aromatic and always fresh-milled for bulk buyers.</p>
+            <span class="product-tag">Basmati</span>
+            <span class="product-tag">Sona Masoori</span>
+            <span class="product-tag">Raw Rice</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pulses -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1612257416648-6e6c9c8cd8f3?w=600&q=80" alt="Pulses and Lentils"/>
+            <span class="product-badge">High Demand</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Pulses & Lentils</div>
+            <p class="product-desc">Protein-rich dals sourced from certified farmers — Arhar, Chana, Moong, Urad and Masoor in wholesale quantities.</p>
+            <span class="product-tag">Arhar Dal</span>
+            <span class="product-tag">Masoor Dal</span>
+            <span class="product-tag">Moong Dal</span>
+            <span class="product-tag">Chana Dal</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Oil -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80" alt="Cooking Oil"/>
+            <span class="product-badge">Pure Quality</span>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Cooking Oils</div>
+            <p class="product-desc">Cold-pressed and refined oils for every kitchen — mustard, sunflower, groundnut, soybean & coconut oil in bulk cans.</p>
+            <span class="product-tag">Mustard Oil</span>
+            <span class="product-tag">Sunflower Oil</span>
+            <span class="product-tag">Groundnut Oil</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spices -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80" alt="Spices"/>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Whole & Ground Spices</div>
+            <p class="product-desc">Cumin, coriander, turmeric, red chilli and more — hand-cleaned and packed to retain maximum aroma.</p>
+            <span class="product-tag">Turmeric</span>
+            <span class="product-tag">Red Chilli</span>
+            <span class="product-tag">Cumin</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wheat / Flour -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600&q=80" alt="Wheat and Flour"/>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Wheat & Flour</div>
+            <p class="product-desc">Sharbati wheat, whole wheat atta, maida and suji — freshly milled for bakeries, hotels, and retailers.</p>
+            <span class="product-tag">Whole Wheat</span>
+            <span class="product-tag">Maida</span>
+            <span class="product-tag">Suji</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sugar & Salt -->
+      <div class="col-md-6 col-lg-4 fade-up">
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=600&q=80" alt="Sugar and Salt"/>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Sugar, Salt & More</div>
+            <p class="product-desc">Refined sugar, rock salt, iodised salt, jaggery & dry fruits — complete pantry essentials for wholesale supply.</p>
+            <span class="product-tag">Sugar</span>
+            <span class="product-tag">Jaggery</span>
+            <span class="product-tag">Rock Salt</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <div class="section-eyebrow">Why Choose Us</div>
+      <h2 class="section-title">Trusted by Hundreds of Businesses</h2>
+      <div class="divider mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <div class="why-icon">🏷️</div>
+          <h5>Best Wholesale Prices</h5>
+          <p>We cut out middlemen and pass the savings directly to you — competitive rates for every order size.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <div class="why-icon">✅</div>
+          <h5>Quality Assured</h5>
+          <p>Each batch is cleaned, sorted and tested before dispatch. No adulteration, no compromise.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <div class="why-icon">🚚</div>
+          <h5>Fast Local Delivery</h5>
+          <p>Prompt delivery across Purnia and surrounding districts. Timely supply you can count on.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 fade-up">
+        <div class="why-card">
+          <div class="why-icon">🤝</div>
+          <h5>Trusted Since Over a Decade</h5>
+          <p>Over 10 years of serving retailers, hotels, and institutions with consistency and integrity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="text-center mb-5 fade-up">
+      <div class="section-eyebrow">Our Store</div>
+      <h2 class="section-title">A Glimpse of Our Range</h2>
+      <div class="divider mx-auto"></div>
+    </div>
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80" alt="Store Interior"/>
+        <div class="gallery-overlay"><span>Our Store Floor</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=500&q=80" alt="Rice Grains"/>
+        <div class="gallery-overlay"><span>Premium Rice</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1591189863430-ab87e120f312?w=500&q=80" alt="Lentils"/>
+        <div class="gallery-overlay"><span>Whole Lentils</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=500&q=80" alt="Fresh Produce"/>
+        <div class="gallery-overlay"><span>Fresh Produce</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=500&q=80" alt="Spices"/>
+        <div class="gallery-overlay"><span>Whole Spices</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="row gy-5 align-items-start">
+      <div class="col-lg-5 fade-up">
+        <div class="section-eyebrow">Get In Touch</div>
+        <h2 class="section-title">Visit Us or Place a Bulk Order</h2>
+        <div class="divider"></div>
+        <p class="section-desc mb-4">We welcome retailers, restaurants, canteens, and institutions. Reach out for pricing, custom orders, or to schedule a visit.</p>
+        <div class="d-flex flex-column gap-3">
+          <div class="contact-card d-flex gap-3 align-items-start">
+            <div class="contact-icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h6>Address</h6>
+              <p>Sri Annapurna Enterprises<br>Purnia, Bihar – India</p>
+            </div>
+          </div>
+          <div class="contact-card d-flex gap-3 align-items-start">
+            <div class="contact-icon-wrap"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <h6>Phone / WhatsApp</h6>
+              <a href="tel:+919576212275">+91 95762 12275</a>
+            </div>
+          </div>
+          <div class="contact-card d-flex gap-3 align-items-start">
+            <div class="contact-icon-wrap"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h6>Email</h6>
+              <a href="mailto:sriannpurnaenterprises101@gmail.com">sriannpurnaenterprises101@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-card d-flex gap-3 align-items-start">
+            <div class="contact-icon-wrap"><i class="fas fa-clock"></i></div>
+            <div>
+              <h6>Business Hours</h6>
+              <p>Mon – Sat: 8:00 AM – 8:00 PM<br>Sunday: 9:00 AM – 2:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 fade-up">
+        <div class="contact-form-card">
+          <h4>📦 Request a Wholesale Quote</h4>
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" placeholder="Your name"/>
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX"/>
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" placeholder="you@example.com"/>
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label">Business Type</label>
+              <select class="form-control form-select">
+                <option value="">Select type</option>
+                <option>Retail Shop</option>
+                <option>Restaurant / Hotel</option>
+                <option>School / Institution</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Products Required</label>
+              <input type="text" class="form-control" placeholder="e.g. 50 kg Basmati Rice, 20 L Sunflower Oil…"/>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" rows="4" placeholder="Any additional information or enquiry…"></textarea>
+            </div>
+            <div class="col-12">
+              <a href="mailto:sriannpurnaenterprises101@gmail.com" class="btn btn-saffron w-100 py-3">
+                <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+              </a>
+              <p style="font-size:.75rem;color:#FFBC6A;margin-top:10px;text-align:center;">
+                Or WhatsApp us directly at <a href="https://wa.me/919576212275" style="color:#FFD580;">+91 95762 12275</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row gy-5">
+      <div class="col-lg-4">
+        <div class="footer-brand-icon">🌾</div>
+        <div class="footer-title">Sri Annapurna Enterprises</div>
+        <div class="footer-sub mb-3">Wholesale Grocery Store</div>
+        <p style="font-size:.85rem;line-height:1.8;max-width:300px;">Serving Purnia and neighbouring districts with quality staples at honest wholesale prices since over a decade.</p>
+        <div class="mt-4">
+          <a href="https://wa.me/919576212275" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:sriannpurnaenterprises101@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="tel:+919576212275" class="social-link" title="Call"><i class="fas fa-phone-alt"></i></a>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#why">Why Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <h6>Product Categories</h6>
+        <ul>
+          <li><a href="#products">Rice & Grains</a></li>
+          <li><a href="#products">Pulses & Dals</a></li>
+          <li><a href="#products">Cooking Oils</a></li>
+          <li><a href="#products">Wheat & Flour</a></li>
+          <li><a href="#products">Spices</a></li>
+          <li><a href="#products">Sugar, Salt & More</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Contact Info</h6>
+        <ul>
+          <li style="color:#FFDBAA;font-size:.85rem;margin-bottom:10px;"><i class="fas fa-map-marker-alt me-2" style="color:var(--saffron)"></i>Purnia, Bihar, India</li>
+          <li><a href="tel:+919576212275"><i class="fas fa-phone-alt me-2" style="color:var(--saffron)"></i>+91 95762 12275</a></li>
+          <li><a href="mailto:sriannpurnaenterprises101@gmail.com" style="word-break:break-all;"><i class="fas fa-envelope me-2" style="color:var(--saffron)"></i>sriannpurnaenterprises101@gmail.com</a></li>
+          <li style="color:#FFDBAA;font-size:.85rem;margin-top:10px;"><i class="fas fa-clock me-2" style="color:var(--saffron)"></i>Mon–Sat 8AM–8PM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      © 2025 Sri Annapurna Enterprises, Purnia. All rights reserved. &nbsp;|&nbsp; Designed with ❤️ for quality groceries.
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<div id="back-top" title="Back to top"><i class="fas fa-chevron-up"></i></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ── Scroll animations ──
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i * 0.08) + 's';
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── Smooth scroll ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // ── Navbar active link ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+    });
+    // back-to-top
+    document.getElementById('back-top').classList.toggle('show', window.scrollY > 400);
+  });
+
+  document.getElementById('back-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ── Counter animation ──
+  const statNums = document.querySelectorAll('.stat-num');
+  const targets = [50, 500, 10];
+  const suffixes = ['+', '+', '+'];
+  const heroObs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      statNums.forEach((el, i) => {
+        let count = 0;
+        const step = Math.ceil(targets[i] / 40);
+        const timer = setInterval(() => {
+          count = Math.min(count + step, targets[i]);
+          el.textContent = count + suffixes[i];
+          if (count >= targets[i]) clearInterval(timer);
+        }, 40);
+      });
+      heroObs.disconnect();
+    }
+  }, { threshold: 0.5 });
+  if (statNums[0]) heroObs.observe(statNums[0].closest('.hero-stats'));
+</script>
+</body>
+</html>
